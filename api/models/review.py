@@ -14,7 +14,7 @@ class Review(Base):
     # Customer's ID from the customer table
     customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
     # Relationship between the customer and the review
-    customer = relationship("Customer", back_populates="reviews")
+    customer = relationship("Customer", back_populates="review")
 
 
 

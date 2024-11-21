@@ -1,9 +1,9 @@
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
+from sqlalchemy.orm import relationship
+from datetime import datetime
+from ..dependencies.database import Base
 
-Base = declarative_base()
-
-class Customer(Base):
+class Customers(Base):
     __tablename__ = "customers"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
@@ -11,3 +11,5 @@ class Customer(Base):
     email = Column(String(100), unique=True, nullable=False)
     phone = Column(String(10), nullable=False)
     address = Column(String(300), nullable=False)
+
+    review = relationship("Review", back_populates="customers")

@@ -9,4 +9,4 @@ class PromoCode(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     promo_code = Column(String(15), nullable=True)
     rate = Column(DECIMAL(10,2), nullable=False, default=0)
-    expiration_date = Column(DATETIME, nullable=False, server_default=str(datetime.max))
+    expiration_date = Column(DATETIME, nullable=True)
