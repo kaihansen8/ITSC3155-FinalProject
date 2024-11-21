@@ -12,4 +12,4 @@ def index():
     resources.Base.metadata.create_all(engine)
     payment_information.Base.metadata.create_all(engine)
     promo_codes.Base.metadata.create_all(engine)
-    Review.Base.metadata.create_all(engine)
+    review.Base.metadata.create_all(engine)

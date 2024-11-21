@@ -6,6 +6,7 @@ from .order_details import OrderDetail
 
 
 class PaymentInformationBase(BaseModel):
+    customer_id: int
     customer_name: str
 
 
