@@ -13,4 +13,4 @@ class PaymentInformation(Base):
     customer_phone_number = Column(String(10), nullable=True)
     customer_address = Column(String(300), nullable=True)
 
-    customers = relationship("Customer", backref="payment_information")
+    customers = relationship("Customers", backref="payment_information")

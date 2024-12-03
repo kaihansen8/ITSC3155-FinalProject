@@ -1,24 +1,28 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status, Response, Depends
-from ..models.reviews import Review
+from ..models import reviews as model
 from sqlalchemy.exc import SQLAlchemyError
 
 def create(db: Session, request):
-    newRev = Review(**request.dict())
+    new_rev = model.Review(
+        review_text=request.text,
+        score=request.score,
+        customer_id=request.customer_id,
+    )
 
     try:
-        db.add(newRev)
+        db.add(new_rev)
         db.commit()
-        db.refresh(newRev)
+        db.refresh(new_rev)
     except SQLAlchemyError as e:
         error = str(e.__dict__['orig'])
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
 
-    return newRev
+    return new_rev
 
 def read_all(db: Session):
     try:
-        result = db.query(Review).all()
+        result = db.query(model.Review).all()
     except SQLAlchemyError as e:
         error = str(e.__dict__['orig'])
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
@@ -26,7 +30,7 @@ def read_all(db: Session):
 
 def read_one(db: Session, item_id):
     try:
-        item = db.query(Review).filter(Review.id == item_id).first()
+        item = db.query(model.Review).filter(model.Review.id == item_id).first()
         if not item:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Error: ID not found")
     except SQLAlchemyError as e:
@@ -36,7 +40,7 @@ def read_one(db: Session, item_id):
 
 def update(db: Session, item_id, request):
     try:
-        item = db.query(Review).filter(Review.id == item_id)
+        item = db.query(model.Review).filter(model.Review.id == item_id)
         if not item.first():
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Error: ID not found")
         update_data = request.dict(exclude_unset=True)
@@ -49,7 +53,7 @@ def update(db: Session, item_id, request):
 
 def delete(db: Session, item_id):
     try:
-        item = db.query(Review).filter(Review.id == item_id)
+        item = db.query(model.Review).filter(model.Review.id == item_id)
         if not item.first():
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Error: ID not found")
         item.delete(synchronize_session=False)
