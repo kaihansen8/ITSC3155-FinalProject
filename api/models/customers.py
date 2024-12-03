@@ -12,4 +12,4 @@ class Customers(Base):
     phone = Column(String(10), nullable=False)
     address = Column(String(300), nullable=False)
 
-    review = relationship("Review", back_populates="customers")
+    reviews = relationship("Review", back_populates="customers")
