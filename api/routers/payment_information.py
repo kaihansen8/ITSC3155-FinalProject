@@ -9,6 +9,7 @@ router = APIRouter(
     prefix="/paymentinformation"
 )
 
+
 @router.post("/", response_model=schema.PaymentInformation)
 def create(request: schema.PaymentInformationCreate, db: Session = Depends(get_db)):
     return controller.create(db=db, request=request)
