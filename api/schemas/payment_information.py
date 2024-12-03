@@ -1,13 +1,13 @@
 from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from .order_details import OrderDetail
 
 
 
 class PaymentInformationBase(BaseModel):
     customer_id: int
-    customer_name: str
+    customer_name: EmailStr
 
 
 class PaymentInformationCreate(PaymentInformationBase):
@@ -21,7 +21,7 @@ class PaymentInformationUpdate(BaseModel):
 
 class PaymentInformation(PaymentInformationBase):
     id: int
-    customer_email: Optional[str] = None
+    customer_email: Optional[EmailStr] = None
     customer_phone_number: Optional[str] = None
     customer_address: Optional[str] = None
 
