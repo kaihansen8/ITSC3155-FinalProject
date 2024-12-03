@@ -5,8 +5,8 @@ from ..schemas import payment_information as schema
 from ..dependencies.database import engine, get_db
 
 router = APIRouter(
-    tags=['PaymentInformation'],
-    prefix="/payment_information"
+    tags=['Payment Information'],
+    prefix="/paymentinformation"
 )
 
 @router.post("/", response_model=schema.PaymentInformation)
