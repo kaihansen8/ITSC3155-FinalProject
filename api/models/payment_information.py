@@ -11,7 +11,7 @@ class PaymentInformation(Base):
     customer_id = Column(Integer, ForeignKey('customers.id'))
     customer_name = Column(String(100))
     #customer_email = Column(String(100), nullable=True)
-    customer_email = Column(EmailStr, nullable=True)
+    customer_email = Column(String(100), nullable=True)
     customer_phone_number = Column(String(10), nullable=True)
     customer_address = Column(String(300), nullable=True)
 
