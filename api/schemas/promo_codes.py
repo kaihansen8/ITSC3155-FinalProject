@@ -8,6 +8,7 @@ from .order_details import OrderDetail
 class PromoCodeBase(BaseModel):
     promo_code: Optional[str] = None
     rate: Optional[float] = None
+    expiration_date: Optional[datetime] = None
 
 
 class PromoCodeCreate(PromoCodeBase):
@@ -22,7 +23,7 @@ class PromoCodeUpdate(BaseModel):
 
 class PromoCode(PromoCodeBase):
     id: int
-    expiration_date: Optional[datetime] = None
+    #expiration_date: Optional[datetime] = None
 
     class ConfigDict:
         from_attributes = True
