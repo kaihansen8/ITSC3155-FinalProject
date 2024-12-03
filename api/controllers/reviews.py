@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status, Response, Depends
-from ..models.review import Review
+from ..models.reviews import Review
 from sqlalchemy.exc import SQLAlchemyError
 
 def create(db: Session, request):

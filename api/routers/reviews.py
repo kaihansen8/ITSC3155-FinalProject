@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from ..controllers import review as controller
-from ..schemas.review import Review, ReviewCreate, ReviewUpdate
+from ..controllers import reviews as controller
+from ..schemas.reviews import Review, ReviewCreate, ReviewUpdate
 from ..dependencies.database import get_db
 
 router = APIRouter(
