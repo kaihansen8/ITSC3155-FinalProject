@@ -5,7 +5,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 # Create a new customer
 def create(db: Session, request):
-    new_customer = model.Customer(
+    new_customer = model.Customers(
         name=request.name,
         email=request.email,
         phone=request.phone,
@@ -25,7 +25,7 @@ def create(db: Session, request):
 
 def read_all(db: Session):
     try:
-        return db.query(model.Customer).all()
+        return db.query(model.Customers).all()
     except SQLAlchemyError as e:
         error = str(e.__dict__['orig'])
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=error)
@@ -33,7 +33,7 @@ def read_all(db: Session):
 
 def read_one(db: Session, item_id: int):
     try:
-        customer = db.query(model.Customer).filter(model.Customer.id == item_id).first()
+        customer = db.query(model.Customers).filter(model.Customers.id == item_id).first()
         if not customer:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Customer not found!")
     except SQLAlchemyError as e:
@@ -45,7 +45,7 @@ def read_one(db: Session, item_id: int):
 
 def update(db: Session, item_id: int, request):
     try:
-        customer = db.query(model.Customer).filter(model.Customer.id == item_id)
+        customer = db.query(model.Customers).filter(model.Customers.id == item_id)
         if not customer.first():
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Customer not found!")
         update_data = request.dict(exclude_unset=True)
@@ -60,7 +60,7 @@ def update(db: Session, item_id: int, request):
 
 def delete(db: Session, item_id: int):
     try:
-        customer = db.query(model.Customer).filter(model.Customer.id == item_id)
+        customer = db.query(model.Customers).filter(model.Customers.id == item_id)
         if not customer.first():
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Customer not found!")
         customer.delete(synchronize_session=False)
