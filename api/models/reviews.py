@@ -12,7 +12,7 @@ class Review(Base):
     # Overall score the customer can leave
     score = Column(Float, nullable=False)
     # Customer's ID from the customer table
-    customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
+    customer_id = Column(Integer, ForeignKey("customers.id"))
     # Relationship between the customer and the review
     customers = relationship("Customers", back_populates="reviews")
 

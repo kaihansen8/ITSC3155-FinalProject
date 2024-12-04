@@ -19,7 +19,7 @@ class ReviewUpdate(BaseModel):
 
 class Review(ReviewBase):
     id: int
-    customer: Optional[Customer] = None
+    #customer: Optional[Customer] = None
 
     class ConfigDict:
         from_attributes = True

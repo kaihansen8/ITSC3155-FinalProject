@@ -5,7 +5,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 def create(db: Session, request):
     new_rev = model.Review(
-        review_text=request.text,
+        review_text=request.review_text,
         score=request.score,
         customer_id=request.customer_id,
     )
