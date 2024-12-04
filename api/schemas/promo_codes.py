@@ -23,7 +23,6 @@ class PromoCodeUpdate(BaseModel):
 
 class PromoCode(PromoCodeBase):
     id: int
-    #expiration_date: Optional[datetime] = None
 
     class ConfigDict:
         from_attributes = True

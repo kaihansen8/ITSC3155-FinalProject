@@ -23,6 +23,7 @@ class PaymentInformationUpdate(BaseModel):
 
 
 class PaymentInformation(PaymentInformationBase):
+    id: int
 
     class ConfigDict:
         from_attributes = True
