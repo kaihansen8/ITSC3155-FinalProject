@@ -2,7 +2,6 @@ from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from ..dependencies.database import Base
-from pydantic import EmailStr
 
 class PaymentInformation(Base):
     __tablename__ = 'payment_information'

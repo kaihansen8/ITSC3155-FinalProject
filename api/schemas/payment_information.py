@@ -16,7 +16,6 @@ class PaymentInformationCreate(PaymentInformationBase):
 
 
 class PaymentInformationUpdate(BaseModel):
-    customer_name: Optional[str] = None
     customer_card: Optional[str] = None
     promo_code: Optional[str] = None
     
