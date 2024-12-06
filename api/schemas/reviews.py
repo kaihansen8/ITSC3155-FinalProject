@@ -6,20 +6,21 @@ from .customers import Customer
 class ReviewBase(BaseModel):
     review_text: Optional[str] = None
     score: float
+    sandwich_id: int
 
 
 class ReviewCreate(ReviewBase):
-    customer_id: int
+    pass
 
 
 class ReviewUpdate(BaseModel):
     review_text: Optional[str] = None
     score: Optional[float] = None
+    sandwich_id: Optional[int] = None
 
 
 class Review(ReviewBase):
     id: int
-    #customer: Optional[Customer] = None
 
     class ConfigDict:
         from_attributes = True

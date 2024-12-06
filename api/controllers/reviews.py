@@ -7,7 +7,7 @@ def create(db: Session, request):
     new_rev = model.Review(
         review_text=request.review_text,
         score=request.score,
-        customer_id=request.customer_id,
+        sandwich_id=request.sandwich_id,
     )
 
     try:
