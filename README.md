@@ -12,4 +12,4 @@
 ### Test API by built-in docs:
 [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
-[Group Presentation.mp4](../../Downloads/Group%20Presentation.mp4)
+https://drive.google.com/file/d/1Q4RtiJ5ddA-PigWTI-zWIo2szSBnszPR/view?usp=sharing
