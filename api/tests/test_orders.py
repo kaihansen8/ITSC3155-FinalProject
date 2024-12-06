@@ -1,8 +1,8 @@
 from fastapi.testclient import TestClient
-from ..controllers import orders as controller
+from ..controllers import orders as controllers
 from ..main import app
 import pytest
-from ..models import orders as model
+from ..models import orders as models
 
 # Create a test client for the app
 client = TestClient(app)
@@ -20,10 +20,10 @@ def test_create_order(db_session):
         "description": "Test order"
     }
 
-    order_object = model.Order(**order_data)
+    order_object = models.Order(**order_data)
 
     # Call the create function
-    created_order = controller.create(db_session, order_object)
+    created_order = controllers.create(db_session, order_object)
 
     # Assertions
     assert created_order is not None
