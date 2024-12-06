@@ -7,16 +7,10 @@ class Review(Base):
     __tablename__ = "ratings_reviews"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    # Optional message the customer can leave (500 char count limit)
     review_text = Column(String(500), nullable=True)
-    # Overall score the customer can leave
     score = Column(Float, nullable=False)
-    # Customer's ID from the customer table
-    #customer_id = Column(Integer, ForeignKey("customers.id"))
-    # Relationship between the customer and the review
     sandwich_id = Column(Integer, ForeignKey("sandwiches.id"), nullable=True)
 
-    #customers = relationship("Customers", back_populates="reviews")
     sandwich = relationship("Sandwich", back_populates="reviews")
 
 

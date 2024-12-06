@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 from ..controllers import reviews as controller
 from ..schemas.reviews import Review, ReviewCreate, ReviewUpdate

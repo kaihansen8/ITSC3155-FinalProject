@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Depends, FastAPI, status, Response
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from ..controllers import payment_information as controller
 from ..schemas import payment_information as schema
-from ..dependencies.database import engine, get_db
+from ..dependencies.database import get_db
 
 router = APIRouter(
     tags=['Payment Information'],

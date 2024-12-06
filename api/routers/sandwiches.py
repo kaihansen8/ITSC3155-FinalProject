@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from ..controllers import sandwiches as controller
 from ..schemas import sandwiches as schema
-from ..dependencies.database import engine, get_db
+from ..dependencies.database import get_db
 
 router = APIRouter(
     tags=["Sandwiches"],

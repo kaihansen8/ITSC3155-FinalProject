@@ -1,6 +1,4 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, DECIMAL, DATETIME
-from sqlalchemy.orm import relationship
-from datetime import datetime
+from sqlalchemy import Column, Integer, String, DECIMAL, DATETIME
 from ..dependencies.database import Base
 
 class PromoCode(Base):
